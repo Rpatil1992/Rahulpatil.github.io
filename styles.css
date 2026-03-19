@@ -1,101 +1,68 @@
-/* ================= ANIMATIONS ================= */
+/* ================= BACKGROUND GLOW ================= */
 
-/* Smooth page fade */
-body {
-  animation: fadePage 1s ease-in;
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59,130,246,0.3), transparent);
+  top: -100px;
+  left: -100px;
+  filter: blur(120px);
+  animation: moveGlow 10s infinite alternate;
 }
 
-@keyframes fadePage {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes moveGlow {
+  from { transform: translate(0,0); }
+  to { transform: translate(200px,200px); }
 }
 
-/* Card entrance animation */
+/* ================= SCROLL ANIMATION ================= */
+
 .card {
-  animation: slideUp 0.8s ease forwards;
   opacity: 0;
+  transform: translateY(50px);
+  transition: 0.6s;
 }
 
-.card:nth-child(1) { animation-delay: 0.2s; }
-.card:nth-child(2) { animation-delay: 0.4s; }
-.card:nth-child(3) { animation-delay: 0.6s; }
-.card:nth-child(4) { animation-delay: 0.8s; }
-
-@keyframes slideUp {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ================= GLOW HOVER ================= */
+/* ================= BUTTONS ================= */
 
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 0 20px rgba(59,130,246,0.4),
-    0 0 40px rgba(168,85,247,0.3);
+.actions {
+  margin-top: 15px;
 }
-
-/* ================= BUTTON GLOW ================= */
 
 .btn {
-  transition: 0.3s;
-}
-
-.btn:hover {
-  box-shadow: 0 0 20px #3b82f6;
-  transform: scale(1.05);
-}
-
-/* ================= FLOATING SKILL PILLS ================= */
-
-.tag {
-  position: relative;
-  animation: float 4s ease-in-out infinite;
-}
-
-.tag:nth-child(1) { animation-delay: 0s; }
-.tag:nth-child(2) { animation-delay: 1s; }
-.tag:nth-child(3) { animation-delay: 2s; }
-.tag:nth-child(4) { animation-delay: 3s; }
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
-}
-
-/* ================= GRADIENT TEXT ================= */
-
-.hero h1 {
-  background: linear-gradient(90deg,#3b82f6,#a855f7,#06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ================= GLOW BORDER ================= */
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  padding: 1px;
+  display: inline-block;
+  padding: 10px 15px;
+  margin-right: 10px;
+  border-radius: 10px;
   background: linear-gradient(135deg,#3b82f6,#9333ea);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: 0.3s;
+  color: white;
+  text-decoration: none;
 }
 
-.card:hover::before {
-  opacity: 1;
+.btn.secondary {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ================= FLOATING PARTICLES ================= */
+
+.particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: floatParticle 10s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes floatParticle {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
 }
