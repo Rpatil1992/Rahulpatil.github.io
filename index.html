@@ -1,71 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Rahul Patil</title>
+<meta charset="UTF-8">
+<title>Rahul Patil | QA Engineer</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: black;
-      color: white;
-    }
+<style>
 
-    .card {
-      background: #111;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 10px;
-      animation: fadeUp 1s ease;
-    }
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: white;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px blue;
-    }
+/* ===== CONTAINER (BENTO GRID) ===== */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
 
-    .tag {
-      display: inline-block;
-      margin: 5px;
-      padding: 5px 10px;
-      background: #222;
-      border-radius: 10px;
-      animation: float 3s infinite;
-    }
+/* ===== GLASS CARD ===== */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-      100% { transform: translateY(0); }
-    }
+/* HOVER GLOW */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(59,130,246,0.4);
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+/* ===== HERO ===== */
+.hero h1 {
+  font-size: 36px;
+  background: linear-gradient(90deg,#3b82f6,#a855f7,#06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
+.hero p {
+  color: #cbd5f5;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg,#3b82f6,#9333ea);
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== INNER GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* ===== TAGS ===== */
+.tag {
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* COLORS */
+.green { background: rgba(16,185,129,0.2); color:#10b981; }
+.blue { background: rgba(59,130,246,0.2); color:#3b82f6; }
+.purple { background: rgba(168,85,247,0.2); color:#a855f7; }
+.orange { background: rgba(249,115,22,0.2); color:#f97316; }
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ===== CREDENTIAL BOX ===== */
+.credential {
+  padding: 15px;
+  border-radius: 15px;
+  border-left: 4px solid;
+}
+
+.credential.blue { border-color:#3b82f6; }
+.credential.green { border-color:#10b981; }
+.credential.purple { border-color:#a855f7; }
+.credential.orange { border-color:#f97316; }
+
+/* ===== ANIMATION ===== */
+.card {
+  animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="card">
-  <h1>Rahul Patil</h1>
-  <p>QA Engineer | Automation | AI Testing</p>
-</div>
+<div class="container">
 
-<div class="card">
-  <h2>QA Skills</h2>
-  <span class="tag">Automation</span>
-  <span class="tag">API Testing</span>
-  <span class="tag">CI/CD</span>
-</div>
+  <!-- LEFT SIDE -->
+  <div>
 
-<div class="card">
-  <h2>Tools</h2>
-  <span class="tag">Playwright</span>
-  <span class="tag">Selenium</span>
-  <span class="tag">Postman</span>
+    <!-- HERO -->
+    <div class="card hero">
+      <h4>SOFTWARE TEST ENGINEER</h4>
+      <h1>Rahul Patil</h1>
+
+      <p>
+        Ensuring quality across <span class="green">Fintech</span>,
+        <span class="blue">Insurance</span> &
+        <span class="purple">EV Domain</span>.
+        Expert in <span class="green">Playwright</span>,
+        <span class="purple">AI Testing</span> &
+        <span class="blue">API Automation</span>.
+      </p>
+
+      <button class="btn">📄 Download Resume</button>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid">
+
+      <!-- QA -->
+      <div class="card">
+        <h3>QA Expertise</h3>
+        <span class="tag green">Automation</span>
+        <span class="tag blue">API Testing</span>
+        <span class="tag purple">Performance</span>
+        <span class="tag orange">Regression</span>
+        <span class="tag green">CI/CD</span>
+      </div>
+
+      <!-- TOOLS -->
+      <div class="card">
+        <h3>Tech Stack</h3>
+        <span class="tag green">Playwright</span>
+        <span class="tag blue">Selenium</span>
+        <span class="tag green">Cypress</span>
+        <span class="tag blue">Postman</span>
+        <span class="tag purple">JMeter</span>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="card">
+        <h3>Projects</h3>
+        <p>AI Test Automation</p>
+        <p>EV Charging Testing</p>
+        <p>Testim → Playwright Migration</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="sidebar">
+
+    <div class="card">
+      <h2>Elite Credentials</h2>
+
+      <div class="credential blue">
+        Salesforce AI Associate
+      </div>
+
+      <div class="credential purple">
+        Playwright 101
+      </div>
+
+      <div class="credential green">
+        AccelQ Specialist
+      </div>
+
+      <div class="credential orange">
+        Selenium 101
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
 </body>
