@@ -1,77 +1,71 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
+  font-family: 'Segoe UI', sans-serif;
+  background: #020617;
   color: white;
 }
 
+/* Grid Layout */
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 150px;
+  grid-auto-rows: 160px;
   gap: 15px;
   padding: 20px;
 }
 
-/* Card Style */
+/* Glass Card */
 .card {
-  background: #1e293b;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(37,99,235,0.5);
 }
 
-/* Bento Sizes */
-.header {
-  grid-column: span 2;
-  grid-row: span 1;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
+/* Layout */
+.header { grid-column: span 2; background: linear-gradient(135deg,#2563eb,#9333ea); }
+.about { grid-column: span 2; grid-row: span 2; }
+.skills { grid-column: span 1; grid-row: span 2; }
+.experience { grid-column: span 1; }
+.projects { grid-column: span 2; grid-row: span 2; }
+.highlight { grid-column: span 1; background: linear-gradient(135deg,#f59e0b,#ef4444); }
+.certifications { grid-column: span 1; }
+.contact { grid-column: span 1; }
+
+/* Skills */
+.skill {
+  margin-bottom: 10px;
 }
 
-.about {
-  grid-column: span 2;
-  grid-row: span 2;
+.bar {
+  background: #1e293b;
+  height: 6px;
+  border-radius: 5px;
 }
 
-.skills {
-  grid-column: span 1;
-  grid-row: span 2;
+.bar div {
+  height: 100%;
+  background: #38bdf8;
+  border-radius: 5px;
 }
 
-.experience {
-  grid-column: span 1;
-  grid-row: span 1;
+/* Projects */
+.project {
+  margin-bottom: 10px;
 }
 
-.projects {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.certifications {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-.contact {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-/* Text Styling */
+/* Text */
 h1, h2 {
   margin-bottom: 10px;
 }
 
 ul {
   padding-left: 15px;
-}
-
-li {
-  margin-bottom: 5px;
 }
