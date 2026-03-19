@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rahul Patil</title>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: black;
+      color: white;
+    }
+
+    .card {
+      background: #111;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      animation: fadeUp 1s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px blue;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 5px;
+      padding: 5px 10px;
+      background: #222;
+      border-radius: 10px;
+      animation: float 3s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Rahul Patil</h1>
+  <p>QA Engineer | Automation | AI Testing</p>
+</div>
+
+<div class="card">
+  <h2>QA Skills</h2>
+  <span class="tag">Automation</span>
+  <span class="tag">API Testing</span>
+  <span class="tag">CI/CD</span>
+</div>
+
+<div class="card">
+  <h2>Tools</h2>
+  <span class="tag">Playwright</span>
+  <span class="tag">Selenium</span>
+  <span class="tag">Postman</span>
+</div>
+
+</body>
+</html>
