@@ -1,102 +1,101 @@
+/* ================= ANIMATIONS ================= */
+
+/* Smooth page fade */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: white;
+  animation: fadePage 1s ease-in;
 }
 
-/* Layout */
-.container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  padding: 30px;
+@keyframes fadePage {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Cards */
+/* Card entrance animation */
 .card {
-  background: rgba(255,255,255,0.04);
-  border-radius: 20px;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
+  animation: slideUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ================= GLOW HOVER ================= */
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 0 20px rgba(59,130,246,0.4),
+    0 0 40px rgba(168,85,247,0.3);
+}
+
+/* ================= BUTTON GLOW ================= */
+
+.btn {
   transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(59,130,246,0.4);
+.btn:hover {
+  box-shadow: 0 0 20px #3b82f6;
+  transform: scale(1.05);
 }
 
-/* Hero */
-.hero h1 {
-  font-size: 40px;
-}
+/* ================= FLOATING SKILL PILLS ================= */
 
-.hero p {
-  color: #cbd5f5;
-}
-
-/* Button */
-.btn {
-  margin-top: 15px;
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: none;
-  background: linear-gradient(135deg,#3b82f6,#9333ea);
-  color: white;
-  cursor: pointer;
-}
-
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.small {
-  min-height: 150px;
-}
-
-/* Tags */
 .tag {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 10px;
-  margin: 5px;
-  font-size: 12px;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
 }
 
-.green { background: rgba(16,185,129,0.2); color:#10b981; }
-.blue { background: rgba(59,130,246,0.2); color:#3b82f6; }
-.purple { background: rgba(168,85,247,0.2); color:#a855f7; }
-.orange { background: rgba(249,115,22,0.2); color:#f97316; }
+.tag:nth-child(1) { animation-delay: 0s; }
+.tag:nth-child(2) { animation-delay: 1s; }
+.tag:nth-child(3) { animation-delay: 2s; }
+.tag:nth-child(4) { animation-delay: 3s; }
 
-/* Sidebar */
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 
-.credential {
-  padding: 15px;
-  border-radius: 15px;
+/* ================= GRADIENT TEXT ================= */
+
+.hero h1 {
+  background: linear-gradient(90deg,#3b82f6,#a855f7,#06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.credential h4 {
-  margin: 0;
+/* ================= GLOW BORDER ================= */
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg,#3b82f6,#9333ea);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: 0.3s;
 }
 
-.credential p {
-  font-size: 12px;
-  color: #aaa;
+.card:hover::before {
+  opacity: 1;
 }
-
-/* Credential Colors */
-.credential.blue { border-left: 4px solid #3b82f6; }
-.credential.green { border-left: 4px solid #10b981; }
-.credential.purple { border-left: 4px solid #a855f7; }
-.credential.orange { border-left: 4px solid #f97316; }
