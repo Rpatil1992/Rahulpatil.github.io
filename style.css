@@ -5,7 +5,7 @@ body {
   color: white;
 }
 
-/* Grid Layout */
+/* Grid */
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -14,30 +14,36 @@ body {
   padding: 20px;
 }
 
-/* Glass Card */
+/* Card */
 .card {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border-radius: 20px;
   padding: 15px;
   border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.3s ease;
+  transition: 0.4s;
 }
 
 .card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(37,99,235,0.5);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 25px rgba(59,130,246,0.6);
 }
 
 /* Layout */
-.header { grid-column: span 2; background: linear-gradient(135deg,#2563eb,#9333ea); }
+.header { grid-column: span 2; text-align: center; }
 .about { grid-column: span 2; grid-row: span 2; }
 .skills { grid-column: span 1; grid-row: span 2; }
-.experience { grid-column: span 1; }
 .projects { grid-column: span 2; grid-row: span 2; }
-.highlight { grid-column: span 1; background: linear-gradient(135deg,#f59e0b,#ef4444); }
-.certifications { grid-column: span 1; }
 .contact { grid-column: span 1; }
+
+/* Profile Image */
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #3b82f6;
+}
 
 /* Skills */
 .skill {
@@ -52,20 +58,22 @@ body {
 
 .bar div {
   height: 100%;
-  background: #38bdf8;
+  background: linear-gradient(90deg,#3b82f6,#06b6d4);
   border-radius: 5px;
 }
 
-/* Projects */
-.project {
-  margin-bottom: 10px;
+/* Animation */
+.fade-in {
+  animation: fadeIn 1s ease-in;
 }
 
-/* Text */
-h1, h2 {
-  margin-bottom: 10px;
-}
-
-ul {
-  padding-left: 15px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
