@@ -6,119 +6,138 @@
 
 <style>
 
-/* ===== BODY ===== */
-body {
+/* ===== RESET ===== */
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #020617, #0f172a);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #020617;
   color: white;
+  overflow-x: hidden;
 }
 
-/* ===== CONTAINER (BENTO GRID) ===== */
+/* ===== SMOOTH SCROLL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== BACKGROUND GLOW ===== */
+body::before {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,0.3), transparent);
+  top: -100px;
+  left: -100px;
+  filter: blur(120px);
+  animation: moveGlow 12s infinite alternate;
+}
+
+@keyframes moveGlow {
+  from { transform: translate(0,0); }
+  to { transform: translate(250px,250px); }
+}
+
+/* ===== CONTAINER ===== */
 .container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  padding: 20px;
-}
-
-/* ===== GLASS CARD ===== */
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: 0.3s;
-}
-
-/* HOVER GLOW */
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 30px rgba(59,130,246,0.4);
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* ===== HERO ===== */
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
 .hero h1 {
-  font-size: 36px;
+  font-size: 56px;
   background: linear-gradient(90deg,#3b82f6,#a855f7,#06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-  color: #cbd5f5;
+  margin-top: 15px;
+  color: #94a3b8;
+  font-size: 18px;
 }
 
 /* ===== BUTTON ===== */
 .btn {
-  margin-top: 10px;
-  padding: 10px 15px;
-  border-radius: 10px;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 12px;
   border: none;
   background: linear-gradient(135deg,#3b82f6,#9333ea);
   color: white;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* ===== INNER GRID ===== */
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(59,130,246,0.5);
+}
+
+/* ===== GRID ===== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 15px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+/* ===== GLASS CARD ===== */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.4s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* ===== HOVER ===== */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(59,130,246,0.3);
 }
 
 /* ===== TAGS ===== */
 .tag {
   display: inline-block;
-  margin: 5px;
-  padding: 6px 10px;
-  border-radius: 10px;
+  margin: 6px;
+  padding: 6px 12px;
+  border-radius: 12px;
   font-size: 12px;
-  animation: float 3s ease-in-out infinite;
+  background: rgba(59,130,246,0.2);
+  animation: float 4s infinite;
 }
 
-/* COLORS */
-.green { background: rgba(16,185,129,0.2); color:#10b981; }
-.blue { background: rgba(59,130,246,0.2); color:#3b82f6; }
-.purple { background: rgba(168,85,247,0.2); color:#a855f7; }
-.orange { background: rgba(249,115,22,0.2); color:#f97316; }
-
-/* FLOAT ANIMATION */
 @keyframes float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
   100% { transform: translateY(0); }
 }
 
-/* ===== SIDEBAR ===== */
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* ===== PROJECT TEXT ===== */
+.card p {
+  margin-top: 8px;
+  color: #cbd5f5;
 }
 
-/* ===== CREDENTIAL BOX ===== */
-.credential {
-  padding: 15px;
-  border-radius: 15px;
-  border-left: 4px solid;
-}
-
-.credential.blue { border-color:#3b82f6; }
-.credential.green { border-color:#10b981; }
-.credential.purple { border-color:#a855f7; }
-.credential.orange { border-color:#f97316; }
-
-/* ===== ANIMATION ===== */
-.card {
-  animation: fadeUp 0.8s ease;
-}
-
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(30px); }
-  to { opacity:1; transform:translateY(0); }
+/* ===== SCROLL ANIMATION ===== */
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 </style>
@@ -128,88 +147,70 @@ body {
 
 <div class="container">
 
-  <!-- LEFT SIDE -->
-  <div>
-
-    <!-- HERO -->
-    <div class="card hero">
-      <h4>SOFTWARE TEST ENGINEER</h4>
-      <h1>Rahul Patil</h1>
-
-      <p>
-        Ensuring quality across <span class="green">Fintech</span>,
-        <span class="blue">Insurance</span> &
-        <span class="purple">EV Domain</span>.
-        Expert in <span class="green">Playwright</span>,
-        <span class="purple">AI Testing</span> &
-        <span class="blue">API Automation</span>.
-      </p>
-
-      <button class="btn">📄 Download Resume</button>
-    </div>
-
-    <!-- GRID -->
-    <div class="grid">
-
-      <!-- QA -->
-      <div class="card">
-        <h3>QA Expertise</h3>
-        <span class="tag green">Automation</span>
-        <span class="tag blue">API Testing</span>
-        <span class="tag purple">Performance</span>
-        <span class="tag orange">Regression</span>
-        <span class="tag green">CI/CD</span>
-      </div>
-
-      <!-- TOOLS -->
-      <div class="card">
-        <h3>Tech Stack</h3>
-        <span class="tag green">Playwright</span>
-        <span class="tag blue">Selenium</span>
-        <span class="tag green">Cypress</span>
-        <span class="tag blue">Postman</span>
-        <span class="tag purple">JMeter</span>
-      </div>
-
-      <!-- PROJECTS -->
-      <div class="card">
-        <h3>Projects</h3>
-        <p>AI Test Automation</p>
-        <p>EV Charging Testing</p>
-        <p>Testim → Playwright Migration</p>
-      </div>
-
-    </div>
-
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Rahul Patil</h1>
+    <p>QA Engineer | Automation | AI Testing</p>
+    <button class="btn">📄 Download Resume</button>
   </div>
 
-  <!-- RIGHT SIDE -->
-  <div class="sidebar">
+  <!-- GRID -->
+  <div class="grid">
 
+    <!-- QA -->
     <div class="card">
-      <h2>Elite Credentials</h2>
+      <h3>QA Expertise</h3>
+      <span class="tag">Automation</span>
+      <span class="tag">API Testing</span>
+      <span class="tag">Performance</span>
+      <span class="tag">Regression</span>
+      <span class="tag">CI/CD</span>
+    </div>
 
-      <div class="credential blue">
-        Salesforce AI Associate
-      </div>
+    <!-- TECH -->
+    <div class="card">
+      <h3>Tech Stack</h3>
+      <span class="tag">Playwright</span>
+      <span class="tag">Selenium</span>
+      <span class="tag">Cypress</span>
+      <span class="tag">Postman</span>
+      <span class="tag">JMeter</span>
+    </div>
 
-      <div class="credential purple">
-        Playwright 101
-      </div>
+    <!-- PROJECTS -->
+    <div class="card">
+      <h3>Projects</h3>
+      <p>AI Test Automation Framework</p>
+      <p>EV Charging Testing</p>
+      <p>Testim → Playwright Migration</p>
+    </div>
 
-      <div class="credential green">
-        AccelQ Specialist
-      </div>
-
-      <div class="credential orange">
-        Selenium 101
-      </div>
-
+    <!-- CERTIFICATIONS -->
+    <div class="card">
+      <h3>Certifications</h3>
+      <p>Salesforce AI Associate</p>
+      <p>AccelQ Specialist</p>
+      <p>Selenium 101</p>
     </div>
 
   </div>
 
 </div>
+
+<!-- JS FOR SCROLL ANIMATION -->
+<script>
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
