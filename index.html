@@ -14,7 +14,7 @@
 }
 
 body {
-  background: radial-gradient(circle at top, #0f172a, #020617);
+  background: #020617;
   color: white;
 }
 
@@ -22,122 +22,108 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 20px 8%;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.logo span {
-  color: #3b82f6;
-}
+.logo span { color: #3b82f6; }
 
 .nav a {
-  margin: 0 15px;
+  margin: 0 10px;
   color: #aaa;
-  text-decoration: none;
 }
 
 .btn {
-  padding: 8px 18px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  background: linear-gradient(135deg,#3b82f6,#9333ea);
   border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
   color: white;
-  cursor: pointer;
 }
 
-/* Bento Grid */
+/* Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 20px;
   padding: 40px 8%;
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
   padding: 20px;
+  border-radius: 20px;
   transition: 0.3s;
-  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: #3b82f6;
+  transform: translateY(-5px) scale(1.02);
 }
 
-/* Hero */
+/* Unique Colors Per Section */
 .hero {
   grid-column: span 2;
   grid-row: span 2;
+  background: linear-gradient(135deg,#1e3a8a,#2563eb);
 }
 
-.hero h1 {
-  font-size: 36px;
-  margin: 10px 0;
+.cert {
+  background: linear-gradient(135deg,#7c2d12,#ea580c);
 }
 
-.highlight {
-  background: linear-gradient(90deg, #3b82f6, #9333ea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.skills {
+  background: linear-gradient(135deg,#581c87,#a855f7);
 }
 
-/* Stats */
+.api {
+  background: linear-gradient(135deg,#064e3b,#10b981);
+}
+
 .stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
   margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
 }
 
 .stat {
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
-  background: rgba(255,255,255,0.08);
-}
-
-.stat h2 {
-  color: #22c55e;
-}
-
-/* Certifications */
-.cert p {
-  margin: 10px 0;
-  padding: 10px;
+  background: rgba(255,255,255,0.1);
+  padding: 12px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #1e293b, #0f172a);
+  text-align: center;
 }
 
-/* Skills */
+/* Glow Effect */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Text */
+h1 { font-size: 36px; }
+h3 { margin-bottom: 10px; }
+
 .skills span {
   display: inline-block;
   margin: 5px;
   padding: 8px 14px;
+  background: rgba(255,255,255,0.2);
   border-radius: 20px;
-  background: linear-gradient(135deg, #3b82f6, #9333ea);
-  font-size: 14px;
 }
-
-/* Colored cards */
-.blue { background: linear-gradient(135deg, #1e3a8a, #2563eb); }
-.purple { background: linear-gradient(135deg, #581c87, #9333ea); }
-.green { background: linear-gradient(135deg, #064e3b, #10b981); }
 
 </style>
 </head>
 
 <body>
 
-<!-- Header -->
 <div class="header">
   <div class="logo">RAHUL <span>PATIL</span></div>
   <div class="nav">
@@ -147,19 +133,13 @@ body {
   </div>
 </div>
 
-<!-- Bento Grid -->
 <div class="grid">
 
-  <!-- Hero -->
+  <!-- HERO -->
   <div class="card hero">
     <p>SOFTWARE TEST ENGINEER</p>
     <h1>Rahul Patil</h1>
-
-    <p>
-      Architecting Quality for 
-      <span class="highlight">Fintech, Healthcare & E-commerce</span>.
-      Expert in <span class="highlight">Playwright, AI Testing & Automation</span>.
-    </p>
+    <p>Expert in Playwright, Selenium & AI Testing</p>
 
     <div class="stats">
       <div class="stat"><h2>99%</h2><p>Pass Rate</p></div>
@@ -169,31 +149,29 @@ body {
     </div>
   </div>
 
-  <!-- Certifications -->
-  <div class="card cert blue">
+  <!-- CERT -->
+  <div class="card cert">
     <h3>Certifications</h3>
     <p>Salesforce AI Associate</p>
     <p>Playwright 101</p>
     <p>Selenium 101</p>
-    <p>AccelQ Automation</p>
     <p>AWS Accreditation</p>
   </div>
 
-  <!-- Skills -->
-  <div class="card skills purple">
-    <h3>Technical Skills</h3>
+  <!-- SKILLS -->
+  <div class="card skills">
+    <h3>Skills</h3>
     <span>Playwright</span>
-    <span>Selenium Java</span>
+    <span>Selenium</span>
     <span>Appium</span>
     <span>TestNG</span>
     <span>JMeter</span>
-    <span>MySQL</span>
   </div>
 
   <!-- API -->
-  <div class="card green">
-    <h3>API Integration</h3>
-    <p>Postman - E2E Validation</p>
+  <div class="card api">
+    <h3>API</h3>
+    <p>Postman - E2E Testing</p>
     <p>Swagger - Contract Testing</p>
   </div>
 
