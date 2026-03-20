@@ -69,7 +69,7 @@ body::before {
 /* Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 20px;
   padding: 40px 8%;
 }
@@ -209,20 +209,29 @@ h3 { margin-bottom: 10px; }
 <div class="grid">
 
   <!-- HERO -->
-  <div class="card hero">
-    <p>SOFTWARE TEST ENGINEER</p>
-    <h1>Rahul Patil</h1>
-    <p>Expert in Playwright, Selenium & AI Testing</p>
+<div class="card hero">
+  <p>SOFTWARE TEST ENGINEER</p>
+  <h1>Rahul Patil</h1>
 
-    <p style="color:#22c55e; margin-top:10px;">📞 8459061319</p>
+  <p>
+    Architecting Quality for Fintech, Healthcare & E-commerce.<br>
+    Expert in Playwright, Selenium & AI Testing.
+  </p>
 
-    <div class="stats">
-      <div class="stat"><h2>99%</h2><p>Pass Rate</p></div>
-      <div class="stat"><h2>500+</h2><p>API Tests</p></div>
-      <div class="stat"><h2>70%</h2><p>Time Saved</p></div>
-      <div class="stat"><h2>0</h2><p>Prod Leaks</p></div>
-    </div>
+  <p style="color:#22c55e; margin-top:10px;">📞 8459061319</p>
+
+  <div class="stats">
+    <div class="stat"><h2>99%</h2><p>Pass Rate</p></div>
+    <div class="stat"><h2>500+</h2><p>API Tests</p></div>
+    <div class="stat"><h2>70%</h2><p>Time Saved</p></div>
+    <div class="stat"><h2>0</h2><p>Prod Leaks</p></div>
   </div>
+</div>
+
+  .hero {
+  grid-column: span 1;
+  grid-row: span 2;
+}
 
   <!-- CERT -->
   <div class="card cert">
