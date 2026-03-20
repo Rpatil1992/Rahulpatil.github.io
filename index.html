@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rahul Patil Portfolio</title>
 
-<!-- ICONS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-* {
+{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Background Glow */
+/* Animated background glow */
 body::before {
   content: '';
   position: fixed;
@@ -58,18 +55,12 @@ body::before {
   border-radius: 20px;
   color: white;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  box-shadow: 0 0 20px #3b82f6;
-  transform: scale(1.05);
 }
 
 /* Grid */
 .grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: repeat(4,1fr);
   gap: 20px;
   padding: 40px 8%;
 }
@@ -84,23 +75,9 @@ body::before {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
   transition: 0.4s;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Animation delay */
-.card:nth-child(1) { animation-delay: 0.2s; }
-.card:nth-child(2) { animation-delay: 0.4s; }
-.card:nth-child(3) { animation-delay: 0.6s; }
-.card:nth-child(4) { animation-delay: 0.8s; }
-
-/* Fade Animation */
-@keyframes fadeInUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Animated Border */
+/* Animated border */
 .card::before {
   content: '';
   position: absolute;
@@ -128,12 +105,6 @@ body::before {
 .hero {
   grid-column: span 2;
   grid-row: span 2;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
 }
 
 .cert { background: rgba(249,115,22,0.1); }
@@ -171,16 +142,6 @@ body::before {
   font-size: 13px;
 }
 
-/* Icons spacing */
-.skills span i {
-  margin-right: 6px;
-}
-
-/* Cloud highlight */
-.cloud {
-  background: linear-gradient(135deg,#10b981,#22c55e) !important;
-}
-
 /* Text */
 h1 { font-size: 38px; margin: 10px 0; }
 h3 { margin-bottom: 10px; }
@@ -209,25 +170,20 @@ h3 { margin-bottom: 10px; }
 <div class="grid">
 
   <!-- HERO -->
-<div class="card hero">
-  <p>SOFTWARE TEST ENGINEER</p>
-  <h1>Rahul Patil</h1>
+  <div class="card hero">
+    <p>SOFTWARE TEST ENGINEER</p>
+    <h1>Rahul Patil</h1>
+    <p>Expert in Playwright, Selenium & AI Testing</p>
 
-  <p>
-    Architecting Quality for Fintech, Healthcare & E-commerce.<br>
-    Expert in Playwright, Selenium & AI Testing.
-  </p>
+    <p style="color:#22c55e; margin-top:10px;">📞 8459061319</p>
 
-  <p style="color:#22c55e; margin-top:10px;">📞 8459061319</p>
-
-  <div class="stats">
-    <div class="stat"><h2>99%</h2><p>Pass Rate</p></div>
-    <div class="stat"><h2>500+</h2><p>API Tests</p></div>
-    <div class="stat"><h2>70%</h2><p>Time Saved</p></div>
-    <div class="stat"><h2>0</h2><p>Prod Leaks</p></div>
+    <div class="stats">
+      <div class="stat"><h2>99%</h2><p>Pass Rate</p></div>
+      <div class="stat"><h2>500+</h2><p>API Tests</p></div>
+      <div class="stat"><h2>70%</h2><p>Time Saved</p></div>
+      <div class="stat"><h2>0</h2><p>Prod Leaks</p></div>
+    </div>
   </div>
-</div>
-
 
   <!-- CERT -->
   <div class="card cert">
@@ -240,19 +196,12 @@ h3 { margin-bottom: 10px; }
 
   <!-- SKILLS -->
   <div class="card skills">
-    <h3>Automation</h3>
-
-    <span><i class="fa-solid fa-robot"></i> Playwright</span>
-    <span><i class="fa-solid fa-gears"></i> Selenium</span>
-    <span><i class="fa-solid fa-mobile-screen"></i> Appium</span>
-    <span><i class="fa-solid fa-vial"></i> TestNG</span>
-    <span><i class="fa-solid fa-chart-line"></i> JMeter</span>
-
-    <h3 style="margin-top:15px;">Ops & Cloud</h3>
-
-    <span class="cloud"><i class="fa-brands fa-aws"></i> AWS</span>
-    <span class="cloud"><i class="fa-brands fa-microsoft"></i> Azure</span>
-    <span class="cloud"><i class="fa-solid fa-bug"></i> Jira</span>
+    <h3>Skills</h3>
+    <span>Playwright</span>
+    <span>Selenium</span>
+    <span>Appium</span>
+    <span>TestNG</span>
+    <span>JMeter</span>
   </div>
 
   <!-- API -->
