@@ -1,35 +1,181 @@
-<style>
-.card {
-  padding: 25px;
-  border-radius: 20px;
-  color: white;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rahul Patil Portfolio</title>
 
-  /* Glow border using box-shadow instead */
-  border: 1px solid rgba(255,255,255,0.1);
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Glow effect */
+body {
+  background: #020617;
+  color: white;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 8%;
+}
+
+.logo span { color: #3b82f6; }
+
+.nav a {
+  margin: 0 10px;
+  color: #aaa;
+}
+
+.btn {
+  background: linear-gradient(135deg,#3b82f6,#9333ea);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+  padding: 40px 8%;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Unique Colors Per Section */
+.hero {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: linear-gradient(135deg,#1e3a8a,#2563eb);
+}
+
+.cert {
+  background: linear-gradient(135deg,#7c2d12,#ea580c);
+}
+
+.skills {
+  background: linear-gradient(135deg,#581c87,#a855f7);
+}
+
+.api {
+  background: linear-gradient(135deg,#064e3b,#10b981);
+}
+
+.stats {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+}
+
+.stat {
+  background: rgba(255,255,255,0.1);
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Glow Effect */
 .card::before {
   content: '';
   position: absolute;
-  inset: -2px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #3b82f6, #9333ea, #10b981);
-  z-index: -1;
-  filter: blur(15px);
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent);
   opacity: 0;
   transition: 0.3s;
 }
 
-/* Hover Glow */
 .card:hover::before {
   opacity: 1;
 }
 
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
+/* Text */
+h1 { font-size: 36px; }
+h3 { margin-bottom: 10px; }
+
+.skills span {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
 }
+
 </style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="logo">RAHUL <span>PATIL</span></div>
+  <div class="nav">
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+    <button class="btn">Connect</button>
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- HERO -->
+  <div class="card hero">
+    <p>SOFTWARE TEST ENGINEER</p>
+    <h1>Rahul Patil</h1>
+    <p>Expert in Playwright, Selenium & AI Testing</p>
+
+    <div class="stats">
+      <div class="stat"><h2>99%</h2><p>Pass Rate</p></div>
+      <div class="stat"><h2>500+</h2><p>API Tests</p></div>
+      <div class="stat"><h2>70%</h2><p>Time Saved</p></div>
+      <div class="stat"><h2>0</h2><p>Prod Leaks</p></div>
+    </div>
+  </div>
+
+  <!-- CERT -->
+  <div class="card cert">
+    <h3>Certifications</h3>
+    <p>Salesforce AI Associate</p>
+    <p>Playwright 101</p>
+    <p>Selenium 101</p>
+    <p>AWS Accreditation</p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="card skills">
+    <h3>Skills</h3>
+    <span>Playwright</span>
+    <span>Selenium</span>
+    <span>Appium</span>
+    <span>TestNG</span>
+    <span>JMeter</span>
+  </div>
+
+  <!-- API -->
+  <div class="card api">
+    <h3>API</h3>
+    <p>Postman - E2E Testing</p>
+    <p>Swagger - Contract Testing</p>
+  </div>
+
+</div>
+
+</body>
+</html>
