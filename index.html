@@ -9,127 +9,109 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: #020617; /* Deep dark navy */
+            background-color: #020617; 
             color: white;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding-bottom: 50px;
         }
 
         /* Header */
         .header {
-            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 5%;
-            max-width: 1400px;
+            padding: 30px 8%;
         }
 
-        .logo { font-weight: bold; letter-spacing: 1px; font-size: 1.2rem; }
+        .logo { font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; }
         .logo span { color: #3b82f6; }
 
-        .nav { display: flex; align-items: center; gap: 25px; }
-        .nav a { color: #fff; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: 0.3s; }
-        .nav a:hover { opacity: 1; }
+        .nav { display: flex; align-items: center; gap: 20px; }
+        .nav a { color: #ccc; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .nav a:hover { color: #fff; }
 
         .btn-connect {
             background: linear-gradient(135deg, #4f46e5, #9333ea);
-            padding: 10px 24px;
+            padding: 10px 22px;
             border-radius: 50px;
             border: none;
             color: white;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
         }
 
-        /* Main Grid Layout */
+        /* Grid Layout */
         .grid {
             display: grid;
-            grid-template-columns: 1.8fr 1fr 1fr;
-            grid-template-rows: auto auto;
-            gap: 20px;
-            padding: 20px 5%;
+            grid-template-columns: 1.8fr 1fr 1fr; /* Matches the UI: Large hero, 2 smaller columns */
+            gap: 25px;
+            padding: 0 8%;
             max-width: 1400px;
-            width: 100%;
+            margin: 0 auto;
         }
 
-        /* The "Mesh Gradient" Card Style */
+        /* The Mesh Gradient Card */
         .card {
-            border-radius: 30px;
-            padding: 40px;
-            position: relative;
+            border-radius: 28px;
+            padding: 35px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            /* This creates the orange-to-greenish glow seen in your image */
-            background: radial-gradient(at top left, rgba(249, 115, 22, 0.8), transparent 70%),
-                        radial-gradient(at bottom right, rgba(132, 204, 22, 0.4), transparent 70%),
-                        rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+            background: radial-gradient(at top left, rgba(249, 115, 22, 0.7), transparent 70%),
+                        radial-gradient(at bottom right, rgba(132, 204, 22, 0.35), transparent 70%),
+                        rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Hero Section */
-        .hero {
-            grid-row: span 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        /* Sections */
+        .hero { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
+        .hero h1 { font-size: 3.2rem; margin: 10px 0; font-weight: 800; }
+        .hero p { opacity: 0.8; }
+        .hero .phone { color: #22c55e; font-weight: bold; text-decoration: none; display: block; margin-top: 10px; }
 
-        .hero-top p { font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 10px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 800; }
-        .hero .tagline { font-size: 1.1rem; margin-bottom: 20px; opacity: 0.9; }
-        .hero .phone { color: #22c55e; font-weight: bold; text-decoration: none; }
-
-        /* Stats Inside Hero */
+        /* Stats */
         .stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .stat-box {
-            background: rgba(255, 255, 255, 0.06);
-            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.07);
+            padding: 25px;
             border-radius: 20px;
             text-align: center;
         }
+        .stat-box h2 { font-size: 2rem; }
+        .stat-box p { font-size: 0.8rem; opacity: 0.6; }
 
-        .stat-box h2 { font-size: 2rem; margin-bottom: 5px; }
-        .stat-box p { font-size: 0.8rem; opacity: 0.7; }
+        /* General Titles */
+        h3 { font-size: 1.4rem; margin-bottom: 18px; color: #fff; }
 
-        /* Titles */
-        h3 { font-size: 1.5rem; margin-bottom: 20px; }
-
-        /* Lists */
-        .cert-list p { margin-bottom: 15px; font-size: 1rem; }
-
-        /* Skills Tags */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag {
+        /* Tag Container (Skills & Tools) */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            padding: 8px 18px;
+            padding: 7px 16px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
-        /* API Section */
-        .api-content p { margin-bottom: 10px; opacity: 0.9; }
+        /* List Styling */
+        .list-item { margin-bottom: 12px; font-size: 0.95rem; opacity: 0.9; }
 
         /* Responsive */
-        @media (max-width: 1100px) {
+        @media (max-width: 1024px) {
             .grid { grid-template-columns: 1fr 1fr; }
             .hero { grid-column: span 2; }
         }
@@ -137,7 +119,6 @@
         @media (max-width: 700px) {
             .grid { grid-template-columns: 1fr; }
             .hero { grid-column: span 1; }
-            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -146,18 +127,18 @@
     <header class="header">
         <div class="logo">RAHUL <span>PATIL</span></div>
         <nav class="nav">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
+            <a href="https://linkedin.com">LinkedIn</a>
+            <a href="https://github.com/Rpatil1992">GitHub</a>
             <button class="btn-connect">Connect Me</button>
         </nav>
     </header>
 
     <main class="grid">
         <section class="card hero">
-            <div class="hero-top">
-                <p>SOFTWARE TEST ENGINEER</p>
+            <div>
+                <p style="letter-spacing: 2px; font-size: 0.75rem; font-weight: bold;">SOFTWARE TEST ENGINEER</p>
                 <h1>Rahul Patil</h1>
-                <p class="tagline">Expert in Playwright, Selenium & AI Testing</p>
+                <p>Expert in Playwright, Selenium & AI Testing</p>
                 <a href="tel:8459061319" class="phone">📞 8459061319</a>
             </div>
 
@@ -169,33 +150,38 @@
             </div>
         </section>
 
-        <section class="card cert">
+        <section class="card">
             <h3>Certifications</h3>
-            <div class="cert-list">
-                <p>✓ Salesforce AI Associate</p>
-                <p>✓ Playwright 101</p>
-                <p>✓ Selenium 101</p>
-                <p>✓ AWS Accreditation</p>
-            </div>
+            <div class="list-item">✓ Salesforce AI Associate</div>
+            <div class="list-item">✓ Playwright 101</div>
+            <div class="list-item">✓ Selenium 101</div>
+            <div class="list-item">✓ AWS Accreditation</div>
         </section>
 
-        <section class="card skills">
+        <section class="card">
             <h3>Skills</h3>
-            <div class="skills-container">
-                <div class="skill-tag">Playwright</div>
-                <div class="skill-tag">Selenium</div>
-                <div class="skill-tag">Appium</div>
-                <div class="skill-tag">TestNG</div>
-                <div class="skill-tag">JMeter</div>
+            <div class="tag-container">
+                <div class="tag">Playwright</div>
+                <div class="tag">Selenium</div>
+                <div class="tag">Appium</div>
+                <div class="tag">TestNG</div>
+                <div class="tag">JMeter</div>
             </div>
         </section>
 
-        <section class="card api">
-            <h3>API</h3>
-            <div class="api-content">
-                <p><strong>Postman</strong> - E2E Testing</p>
-                <p><strong>Swagger</strong> - Contract Testing</p>
+        <section class="card">
+            <h3>Tools Used</h3>
+            <div class="tag-container">
+                <div class="tag">Jira</div>
+                <div class="tag">Azure</div>
+                <div class="tag">AWS</div>
             </div>
+        </section>
+
+        <section class="card">
+            <h3>API</h3>
+            <div class="list-item"><strong>Postman</strong> - E2E Testing</div>
+            <div class="list-item"><strong>Swagger</strong> - Contract Testing</div>
         </section>
     </main>
 
