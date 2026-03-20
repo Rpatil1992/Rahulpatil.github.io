@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rahul Patil Portfolio</title>
 
 <style>
@@ -14,8 +14,22 @@
 }
 
 body {
-  background: #020617;
+  background: radial-gradient(circle at top, #0f172a, #020617);
   color: white;
+  overflow-x: hidden;
+}
+
+/* Animated background glow */
+body::before {
+  content: '';
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #3b82f6, transparent);
+  top: -100px;
+  left: -100px;
+  filter: blur(120px);
+  opacity: 0.4;
 }
 
 /* Header */
@@ -23,21 +37,24 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px 8%;
+  backdrop-filter: blur(10px);
 }
 
 .logo span { color: #3b82f6; }
 
 .nav a {
   margin: 0 10px;
-  color: #aaa;
+  color: #ccc;
+  text-decoration: none;
 }
 
 .btn {
   background: linear-gradient(135deg,#3b82f6,#9333ea);
   border: none;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 20px;
   color: white;
+  cursor: pointer;
 }
 
 /* Grid */
@@ -48,37 +65,53 @@ body {
   padding: 40px 8%;
 }
 
+/* Card */
 .card {
-  padding: 20px;
+  padding: 25px;
   border-radius: 20px;
-  transition: 0.3s;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.4s;
+}
+
+/* Animated border */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  background: linear-gradient(270deg,#3b82f6,#9333ea,#10b981,#f97316);
+  background-size: 600% 600%;
+  animation: borderMove 6s linear infinite;
+  z-index: -1;
+  filter: blur(15px);
+}
+
+@keyframes borderMove {
+  0% {background-position: 0%}
+  50% {background-position: 100%}
+  100% {background-position: 0%}
 }
 
 .card:hover {
-  transform: translateY(-5px) scale(1.02);
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 0 40px rgba(59,130,246,0.4);
 }
 
-/* Unique Colors Per Section */
+/* Sections */
 .hero {
   grid-column: span 2;
   grid-row: span 2;
-  background: linear-gradient(135deg,#1e3a8a,#2563eb);
 }
 
-.cert {
-  background: linear-gradient(135deg,#7c2d12,#ea580c);
-}
+.cert { background: rgba(249,115,22,0.1); }
+.skills { background: rgba(168,85,247,0.1); }
+.api { background: rgba(16,185,129,0.1); }
 
-.skills {
-  background: linear-gradient(135deg,#581c87,#a855f7);
-}
-
-.api {
-  background: linear-gradient(135deg,#064e3b,#10b981);
-}
-
+/* Stats */
 .stats {
   margin-top: 15px;
   display: grid;
@@ -87,55 +120,53 @@ body {
 }
 
 .stat {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
-}
-
-/* Glow Effect */
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent);
-  opacity: 0;
   transition: 0.3s;
 }
 
-.card:hover::before {
-  opacity: 1;
+.stat:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
 }
 
-/* Text */
-h1 { font-size: 36px; }
-h3 { margin-bottom: 10px; }
-
+/* Skills */
 .skills span {
   display: inline-block;
   margin: 5px;
   padding: 8px 14px;
-  background: rgba(255,255,255,0.2);
   border-radius: 20px;
+  background: linear-gradient(135deg,#3b82f6,#9333ea);
+  font-size: 13px;
 }
 
+/* Text */
+h1 { font-size: 38px; margin: 10px 0; }
+h3 { margin-bottom: 10px; }
+
+/* Responsive */
+@media(max-width: 900px){
+  .grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 
 <body>
 
+<!-- Header -->
 <div class="header">
   <div class="logo">RAHUL <span>PATIL</span></div>
- <div class="nav">
-  <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank">LinkedIn</a>
-  <a href="https://github.com/Rpatil1992" target="_blank">GitHub</a>
-  <a href="tel:8459061319">
-    <button class="btn">Connect Me</button>
-  </a>
-</div>
+
+  <div class="nav">
+    <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank">LinkedIn</a>
+    <a href="https://github.com/Rpatil1992" target="_blank">GitHub</a>
+    <a href="tel:8459061319"><button class="btn">Connect Me</button></a>
   </div>
 </div>
 
+<!-- Grid -->
 <div class="grid">
 
   <!-- HERO -->
@@ -143,6 +174,8 @@ h3 { margin-bottom: 10px; }
     <p>SOFTWARE TEST ENGINEER</p>
     <h1>Rahul Patil</h1>
     <p>Expert in Playwright, Selenium & AI Testing</p>
+
+    <p style="color:#22c55e; margin-top:10px;">📞 8459061319</p>
 
     <div class="stats">
       <div class="stat"><h2>99%</h2><p>Pass Rate</p></div>
@@ -155,10 +188,10 @@ h3 { margin-bottom: 10px; }
   <!-- CERT -->
   <div class="card cert">
     <h3>Certifications</h3>
-    <p>Salesforce AI Associate</p>
-    <p>Playwright 101</p>
-    <p>Selenium 101</p>
-    <p>AWS Accreditation</p>
+    <p>✔ Salesforce AI Associate</p>
+    <p>✔ Playwright 101</p>
+    <p>✔ Selenium 101</p>
+    <p>✔ AWS Accreditation</p>
   </div>
 
   <!-- SKILLS -->
