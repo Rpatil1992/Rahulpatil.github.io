@@ -41,13 +41,11 @@
             z-index: -1;
         }
 
-        /* Entrance Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -72,6 +70,8 @@
             border: none;
             font-weight: 700;
             cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
             transition: 0.3s;
         }
 
@@ -80,7 +80,6 @@
             box-shadow: 0 0 20px rgba(255,255,255,0.4);
         }
 
-        /* Grid System */
         .container {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -91,7 +90,6 @@
 
         .main-col, .side-col { display: flex; flex-direction: column; gap: 25px; }
 
-        /* Premium Card Styling */
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -105,7 +103,6 @@
             animation: fadeInUp 0.8s ease forwards;
         }
 
-        /* Staggered Delays */
         .card:nth-child(1) { animation-delay: 0.1s; }
         .card:nth-child(2) { animation-delay: 0.2s; }
         .card:nth-child(3) { animation-delay: 0.3s; }
@@ -126,12 +123,10 @@
             display: block;
         }
 
-        /* Hero */
         .hero h1 { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -1px; }
         .hero .summary { font-size: 1.15rem; color: #cbd5e1; line-height: 1.7; max-width: 95%; }
         .highlight { font-weight: 600; color: #fff; border-bottom: 2px solid var(--accent-blue); }
 
-        /* Mid Grid */
         .mid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
 
         .stat-item {
@@ -142,11 +137,9 @@
             text-align: center;
             transition: 0.3s;
         }
-        .stat-item:hover { background: rgba(255,255,255,0.06); }
         .stat-item h2 { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 5px; }
         .stat-item p { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700; }
 
-        /* Credentials List */
         .cred-item {
             border-left: 4px solid var(--accent-blue);
             padding: 15px 20px;
@@ -155,11 +148,9 @@
             margin-bottom: 15px;
             transition: 0.3s;
         }
-        .cred-item:hover { background: rgba(255,255,255,0.05); transform: translateX(5px); }
         .cred-item h4 { font-size: 1rem; margin-bottom: 4px; }
         .cred-item p { font-size: 0.8rem; color: var(--text-dim); }
 
-        /* Technical Arsenal Tags */
         .tag-cloud { display: flex; flex-wrap: wrap; gap: 12px; }
         .tag {
             padding: 10px 20px;
@@ -169,16 +160,15 @@
             border: 1px solid rgba(255,255,255,0.1);
             background: rgba(255,255,255,0.03);
             transition: all 0.3s ease;
-            cursor: default;
+            cursor: pointer;
+            text-decoration: none;
         }
         .tag:hover {
             background: #fff;
             color: #000;
             transform: scale(1.1) rotate(2deg);
-            border-color: #fff;
         }
 
-        /* Ops Grid */
         .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .f-box {
             padding: 18px;
@@ -202,9 +192,9 @@
     <header>
         <div class="logo">RAHUL <span>PATIL</span></div>
         <div class="nav">
-            <a href="#">LINKEDIN</a>
-            <a href="#">GITHUB</a>
-            <button class="btn-connect">Connect Me</button>
+            <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank">LINKEDIN</a>
+            <a href="https://github.com/Rpatil1992" target="_blank">GITHUB</a>
+            <a href="mailto:Rahulgpatil529@gmail.com" class="btn-connect">Connect Me</a>
         </div>
     </header>
 
@@ -253,7 +243,7 @@
                     <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">JavaScript</div>
                     <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">TypeScript</div>
                     <div class="tag" style="border-color: var(--accent-green); color: var(--accent-green);">Jenkins</div>
-                    <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">Git</div>
+                    <a href="https://github.com/Rpatil1992" target="_blank" class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">Git / GitHub</a>
                 </div>
             </section>
         </div>
