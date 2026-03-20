@@ -101,14 +101,14 @@
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             overflow: hidden;
-            opacity: 0; /* For animation */
+            opacity: 0; 
             animation: fadeInUp 0.8s ease forwards;
         }
 
-        /* Animation Delays */
+        /* Staggered Delays */
         .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.3s; }
-        .card:nth-child(3) { animation-delay: 0.5s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
 
         .card:hover {
             border-color: rgba(255, 255, 255, 0.2);
@@ -127,8 +127,8 @@
         }
 
         /* Hero */
-        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero .summary { font-size: 1.1rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero .summary { font-size: 1.15rem; color: #cbd5e1; line-height: 1.7; max-width: 95%; }
         .highlight { font-weight: 600; color: #fff; border-bottom: 2px solid var(--accent-blue); }
 
         /* Mid Grid */
@@ -162,19 +162,20 @@
         /* Technical Arsenal Tags */
         .tag-cloud { display: flex; flex-wrap: wrap; gap: 12px; }
         .tag {
-            padding: 8px 18px;
-            border-radius: 12px;
+            padding: 10px 20px;
+            border-radius: 14px;
             font-size: 0.85rem;
             font-weight: 600;
             border: 1px solid rgba(255,255,255,0.1);
             background: rgba(255,255,255,0.03);
-            transition: 0.3s;
+            transition: all 0.3s ease;
             cursor: default;
         }
         .tag:hover {
             background: #fff;
             color: #000;
             transform: scale(1.1) rotate(2deg);
+            border-color: #fff;
         }
 
         /* Ops Grid */
@@ -182,15 +183,14 @@
         .f-box {
             padding: 18px;
             border-radius: 18px;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             background: rgba(255,255,255,0.02);
             text-align: center;
             font-size: 0.9rem;
             font-weight: 700;
-            color: var(--accent-blue);
-            transition: 0.3s;
+            transition: 0.4s;
         }
-        .f-box:hover { background: var(--accent-blue); color: #fff; }
+        .f-box:hover { background: #fff; color: #000; transform: translateY(-3px); }
 
         @media (max-width: 950px) {
             .container { grid-template-columns: 1fr; }
@@ -210,11 +210,10 @@
 
     <div class="container">
         <div class="main-col">
-            <section class="card">
+            <section class="card hero">
                 <span class="section-label">SOFTWARE TEST ENGINEER</span>
                 <h1>Rahul Patil</h1>
                 <p class="summary">QA Engineer with 5+ years of experience in automation and API testing, specializing in <span class="highlight">Playwright</span>, <span class="highlight">Selenium</span>, and <span class="highlight">CI/CD</span> to deliver high-quality, reliable software.</p>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Expert in Selenium, Playwright, and <span style="color: var(--accent-purple); font-weight: bold;">AI Automation</span>.</p>
             </section>
 
             <div class="mid-row">
@@ -244,17 +243,17 @@
             <section class="card">
                 <span class="section-label">TECHNICAL ARSENAL</span>
                 <div class="tag-cloud">
-                    <div class="tag" style="border-color: var(--accent-blue);">Playwright</div>
-                    <div class="tag" style="border-color: var(--accent-green);">Selenium</div>
-                    <div class="tag" style="border-color: var(--accent-purple);">Java</div>
-                    <div class="tag" style="border-color: var(--accent-blue);">REST</div>
-                    <div class="tag" style="border-color: var(--accent-blue);">JMeter</div>
-                    <div class="tag" style="border-color: var(--accent-green);">TestNG</div>
-                    <div class="tag" style="border-color: var(--accent-purple);">Appium</div>
-                    <div class="tag" style="border-color: var(--accent-blue);">JavaScript</div>
-                    <div class="tag" style="border-color: var(--accent-blue);">TypeScript</div>
-                    <div class="tag" style="border-color: var(--accent-green);">Jenkins</div>
-                    <div class="tag" style="border-color: var(--accent-blue);">Git</div>
+                    <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">Playwright</div>
+                    <div class="tag" style="border-color: var(--accent-green); color: var(--accent-green);">Selenium</div>
+                    <div class="tag" style="border-color: var(--accent-purple); color: var(--accent-purple);">Java</div>
+                    <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">REST</div>
+                    <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">JMeter</div>
+                    <div class="tag" style="border-color: var(--accent-green); color: var(--accent-green);">TestNG</div>
+                    <div class="tag" style="border-color: var(--accent-purple); color: var(--accent-purple);">Appium</div>
+                    <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">JavaScript</div>
+                    <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">TypeScript</div>
+                    <div class="tag" style="border-color: var(--accent-green); color: var(--accent-green);">Jenkins</div>
+                    <div class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">Git</div>
                 </div>
             </section>
         </div>
@@ -271,10 +270,10 @@
             <section class="card">
                 <span class="section-label">OPS & MANAGEMENT</span>
                 <div class="footer-grid">
-                    <div class="f-box" style="color: #f59e0b; border-color: #f59e0b;">AWS</div>
-                    <div class="f-box" style="color: #3b82f6; border-color: #3b82f6;">Azure</div>
-                    <div class="f-box" style="color: #10b981; border-color: #10b981;">JIRA</div>
-                    <div class="f-box" style="color: #a855f7; border-color: #a855f7;">SalesForce</div>
+                    <div class="f-box" style="color: #f59e0b;">AWS</div>
+                    <div class="f-box" style="color: #3b82f6;">Azure</div>
+                    <div class="f-box" style="color: #10b981;">JIRA</div>
+                    <div class="f-box" style="color: #a855f7;">SalesForce</div>
                 </div>
             </section>
         </div>
