@@ -20,16 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* Subtle Background Glows */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -10%; left: -10%;
-            width: 40%; height: 40%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
-            z-index: -1;
-        }
-
         /* Header */
         .header {
             display: flex;
@@ -71,14 +61,11 @@
             border-radius: 30px;
             padding: 35px;
             position: relative;
-            /* Subtle border to catch the light */
             border: 1px solid rgba(255, 255, 255, 0.15);
-            /* Mesh Gradient Background */
             background: radial-gradient(at top left, rgba(249, 115, 22, 0.6), transparent 70%),
                         radial-gradient(at bottom right, rgba(132, 204, 22, 0.3), transparent 70%),
                         rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
-            /* Glow effect */
             box-shadow: 0 0 15px rgba(249, 115, 22, 0.1);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -93,7 +80,7 @@
         .hero { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
         .hero h1 { font-size: 3.5rem; margin: 10px 0; font-weight: 800; line-height: 1.1; }
         .hero .label { letter-spacing: 3px; font-size: 0.75rem; font-weight: bold; color: rgba(255,255,255,0.7); }
-        .hero .tagline { font-size: 1.1rem; opacity: 0.9; margin-top: 5px; }
+        .hero .summary { font-size: 1rem; opacity: 0.9; margin-top: 10px; line-height: 1.6; max-width: 90%; }
 
         /* Stats Blocks */
         .stats-grid {
@@ -111,11 +98,11 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .stat-box h2 { font-size: 2.2rem; margin-bottom: 2px; }
-        .stat-box p { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-box p { font-size: 0.75rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
 
         /* Titles & Lists */
-        h3 { font-size: 1.5rem; margin-bottom: 20px; color: #fff; font-weight: 700; }
-        .list-item { margin-bottom: 14px; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
+        h3 { font-size: 1.4rem; margin-bottom: 20px; color: #fff; font-weight: 700; }
+        .list-item { margin-bottom: 14px; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; opacity: 0.9; }
         .check { color: #22c55e; font-weight: bold; }
 
         /* Tags (Skills/Tools) */
@@ -124,7 +111,7 @@
             background: linear-gradient(135deg, #4f46e5, #9333ea);
             padding: 8px 18px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
@@ -158,7 +145,7 @@
             <div>
                 <p class="label">SOFTWARE TEST ENGINEER</p>
                 <h1>Rahul Patil</h1>
-                <p class="tagline">Expert in Playwright, Selenium & AI Testing</p>
+                <p class="summary">QA Engineer with 5+ years of experience in automation and API testing, specializing in Playwright, Selenium, and CI/CD to deliver high-quality, reliable software.</p>
             </div>
 
             <div class="stats-grid">
@@ -194,7 +181,7 @@
                 <div class="tag">Jira</div>
                 <div class="tag">Azure</div>
                 <div class="tag">AWS</div>
-                <div class="tag">Git</div>
+                <div class="tag">CI/CD</div>
             </div>
         </section>
 
